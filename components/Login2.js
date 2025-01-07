@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 import React from 'react'
 
 // colorfondo: #00c6d1
@@ -8,6 +9,10 @@ import React from 'react'
 const Login2 = () => {
 
     const image = require("../assets/images/Captura de pantalla 2024-12-12 132402.png");
+    const navigation = useNavigation();
+    const loginUser = () => {
+        navigation.navigate('HomeDrawer');
+    }
 
     return (
         <KeyboardAvoidingView
@@ -30,7 +35,7 @@ const Login2 = () => {
                             </View>
                         </View>
                         <View style={styles.containerButton}>
-                            <TouchableOpacity style={styles.ingresoBtn}>
+                            <TouchableOpacity style={styles.ingresoBtn} onPress={loginUser}>
                                 <Text style={styles.txtButton}>Iniciar Sesión</Text>
                             </TouchableOpacity>
                         </View>
@@ -52,7 +57,6 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        // backgroundColor: '#00c6d1',
     },
     imagen: {
         width: 350,
