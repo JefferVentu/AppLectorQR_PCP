@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 function MyDrawer() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Login" component={Login} />
+      <Drawer.Screen name="Login" component={Login2} />
     </Drawer.Navigator>
   );
 }
@@ -47,8 +47,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      margin:0,
-      padding:0,
+    flex: 1,
+    margin: 0,
+    padding: 0,
   },
 });
