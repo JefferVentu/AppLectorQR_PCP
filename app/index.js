@@ -1,16 +1,48 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Button } from '@react-navigation/elements';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const App = () => {
-    return (
-        <View>
-            <Text>App</Text>
-        </View>
-    )
+const Drawer = createDrawerNavigator();
+
+function MyDrawer() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Profile" component={ProfileScreen} />
+    </Drawer.Navigator>
+  );
 }
 
-export default App
+function HomeScreen() {
+  const navigation = useNavigation();
 
-const styles = StyleSheet.create({
-    
-})
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button onPress={() => navigation.navigate('Profile')}>
+        Go to Profile
+      </Button>
+    </View>
+  );
+}
+
+function ProfileScreen() {
+  const navigation = useNavigation();
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Profile Screen</Text>
+      <Button onPress={() => navigation.navigate('Home')}>Go to Home</Button>
+    </View>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyDrawer />
+    </NavigationContainer>
+  );
+}
