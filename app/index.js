@@ -1,48 +1,54 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import { Text, View, StatusBar, SafeAreaView, StyleSheet } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { Button } from '@react-navigation/elements';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Login2 from '../components/Login2';
 
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 function MyDrawer() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={HomeScreen} />
-      <Drawer.Screen name="Profile" component={ProfileScreen} />
+      <Drawer.Screen name="Login" component={Login} />
     </Drawer.Navigator>
-  );
-}
-
-function HomeScreen() {
-  const navigation = useNavigation();
-
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button onPress={() => navigation.navigate('Profile')}>
-        Go to Profile
-      </Button>
-    </View>
-  );
-}
-
-function ProfileScreen() {
-  const navigation = useNavigation();
-
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Profile Screen</Text>
-      <Button onPress={() => navigation.navigate('Home')}>Go to Home</Button>
-    </View>
   );
 }
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <MyDrawer />
-    </NavigationContainer>
+    <>
+      <StatusBar hidden={false} />
+      <SafeAreaView style={styles.container}>
+        <Stack.Navigator>
+          <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name='Login'
+            component={Login2}
+
+          />
+          {/* <Stack.Screen
+            options={{ headerShown: false }}
+            name='Register'
+            component={Register}
+          />
+          <Stack.Screen
+            name='HomeDrawer'
+            component={HomeDrawer}
+            options={{ headerShown: false, gestureEnabled: false }}
+          /> */}
+        </Stack.Navigator>
+      </SafeAreaView>
+    </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      margin:0,
+      padding:0,
+  },
+});
