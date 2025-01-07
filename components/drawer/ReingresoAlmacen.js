@@ -3,7 +3,7 @@ import React from 'react'
 
 const ReingresoAlmacen = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text>ReingresoAlmacen</Text>
         </View>
     )
@@ -11,4 +11,9 @@ const ReingresoAlmacen = () => {
 
 export default ReingresoAlmacen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: '#00c6d1',
+        flex: 1,
+    }
+})

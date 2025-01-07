@@ -3,7 +3,7 @@ import React from 'react'
 
 const CambioAlmacen = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text>CambioAlmacen</Text>
         </View>
     )
@@ -11,4 +11,9 @@ const CambioAlmacen = () => {
 
 export default CambioAlmacen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: '#00c6d1',
+        flex: 1,
+    }
+})

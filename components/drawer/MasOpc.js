@@ -3,7 +3,7 @@ import React from 'react'
 
 const MasOpc = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text>MasOpc</Text>
         </View>
     )
@@ -11,4 +11,9 @@ const MasOpc = () => {
 
 export default MasOpc
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: '#00c6d1',
+        flex: 1,
+    }
+})

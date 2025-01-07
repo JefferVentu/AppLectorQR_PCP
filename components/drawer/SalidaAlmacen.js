@@ -3,7 +3,7 @@ import React from 'react'
 
 const SalidaAlmacen = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text>SalidaAlmacen</Text>
         </View>
     )
@@ -11,4 +11,9 @@ const SalidaAlmacen = () => {
 
 export default SalidaAlmacen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: '#00c6d1',
+        flex: 1,
+    }
+})
