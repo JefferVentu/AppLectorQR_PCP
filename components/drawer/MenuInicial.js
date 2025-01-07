@@ -6,7 +6,7 @@ import React from 'react'
 // 2docolor: #f9be00
 // 3ercolor: #cccccc
 
-const menuInicial = () => {
+const MenuInicial = () => {
     return (
         <View>
             <Text>menuInicial</Text>
@@ -14,6 +14,6 @@ const menuInicial = () => {
     )
 }
 
-export default menuInicial
+export default MenuInicial
 
 const styles = StyleSheet.create({})

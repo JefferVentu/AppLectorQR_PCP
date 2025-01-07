@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ingresoAlmacen = () => {
+const IngresoAlmacen = () => {
   return (
     <View>
       <Text>ingresoAlmacen</Text>
@@ -9,6 +9,6 @@ const ingresoAlmacen = () => {
   )
 }
 
-export default ingresoAlmacen
+export default IngresoAlmacen
 
 const styles = StyleSheet.create({})
