@@ -16,6 +16,7 @@ import MasOpc from '../components/drawer/MasOpc';
 // colorbotones: #043256
 // 2docolor: #f9be00
 // 3ercolor: #cccccc
+// #007BFF
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -25,15 +26,16 @@ function HomeDrawer() {
     <Drawer.Navigator
       screenOptions={{
         // headerShown: false,
-        drawerActiveTintColor: '#007BFF',
+        drawerActiveTintColor: '#fff',
+        drawerActiveBackgroundColor: '#043256',
         drawerInactiveTintColor: '#000',
         drawerStyle: {
           flex: 1,
-          backgroundColor: '#fff',
+          backgroundColor: '#cccccc',
         },
         headerStatusBarHeight: 0,
         headerStyle: {
-          backgroundColor: '#007BFF',
+          backgroundColor: '#043256',
         },
         headerTitleStyle: {
           color: 'white',
@@ -43,8 +45,8 @@ function HomeDrawer() {
       }}
 
     >
-      <Drawer.Screen name="MenuInicial" component={MenuInicial} />
-      <Drawer.Screen name="IngresoAlmacen" component={IngresoAlmacen} />
+      <Drawer.Screen name="Menú" component={MenuInicial} />
+      <Drawer.Screen name="Ingreso al Almacen" component={IngresoAlmacen} />
       <Drawer.Screen name="Salida del Almacen" component={SalidaAlmacen} />
       <Drawer.Screen name="Cambio de Almacen" component={CambioAlmacen} />
       <Drawer.Screen name="Reingreso al Almacen" component={ReingresoAlmacen} />

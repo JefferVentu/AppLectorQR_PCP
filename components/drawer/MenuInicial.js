@@ -8,7 +8,7 @@ import React from 'react'
 
 const MenuInicial = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text>menuInicial</Text>
         </View>
     )
@@ -16,4 +16,9 @@ const MenuInicial = () => {
 
 export default MenuInicial
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: '#00c6d1',
+        flex: 1,
+    }
+})
