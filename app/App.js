@@ -10,7 +10,6 @@ import ConsultaQR from '../components/drawer/ConsultaQR';
 import SalidaAlmacen from '../components/drawer/SalidaAlmacen';
 import CambioAlmacen from '../components/drawer/CambioAlmacen';
 import ReingresoAlmacen from '../components/drawer/ReingresoAlmacen';
-import MasOpc from '../components/drawer/MasOpc';
 
 // colorfondo: #00c6d1
 // colorbotones: #043256
@@ -50,7 +49,6 @@ function HomeDrawer() {
       <Drawer.Screen name="Salida del Almacen" component={SalidaAlmacen} />
       <Drawer.Screen name="Cambio de Almacen" component={CambioAlmacen} />
       <Drawer.Screen name="Reingreso al Almacen" component={ReingresoAlmacen} />
-      <Drawer.Screen name="Más" component={MasOpc} />
     </Drawer.Navigator>
   );
 }
