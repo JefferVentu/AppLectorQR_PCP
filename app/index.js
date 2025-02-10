@@ -45,7 +45,7 @@ function HomeDrawer() {
       }}
 
     >
-      <Drawer.Screen name="Menú" component={MenuInicial} />
+      <Drawer.Screen name="Inicio" component={MenuInicial} />
       <Drawer.Screen name="Ingreso al Almacen" component={IngresoAlmacen} />
       <Drawer.Screen name="Salida del Almacen" component={SalidaAlmacen} />
       <Drawer.Screen name="Cambio de Almacen" component={CambioAlmacen} />
