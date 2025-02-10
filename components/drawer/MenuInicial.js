@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'; // Importa la librería de iconos
+import { useNavigation } from '@react-navigation/native';
 
 const colors = {
     background: '#00c6d1',
@@ -11,21 +12,28 @@ const colors = {
 
 // Lista de botones con títulos e íconos
 const buttons = [
-    { title: "Consulta QR", icon: "qrcode-scan" },
-    { title: "Salida del almacén", icon: "exit-run" },
-    { title: "Cambio de almacén", icon: "swap-horizontal" },
-    { title: "Reingreso al almacén", icon: "truck-delivery" },
+    { title: "Consulta QR", icon: "qrcode-scan", screen: "Consulta QR" },
+    { title: "Salida del almacén", icon: "exit-run", screen: "Salida del Almacen" },
+    { title: "Cambio de almacén", icon: "swap-horizontal", screen: "Cambio de Almacen" },
+    { title: "Reingreso al almacén", icon: "truck-delivery", screen: "Reingreso al Almacen" },
     { title: "Agregar Proveedor", icon: "account-plus" },
     { title: "Editar Proveedor", icon: "account-edit" },
     { title: "Historial", icon: "history" }
 ];
 
 const MenuInicial = () => {
+
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <View style={styles.containerButton}>
                 {buttons.map((item, index) => (
-                    <TouchableOpacity key={index} style={styles.btn}>
+                    <TouchableOpacity 
+                        key={index} 
+                        style={styles.btn}
+                        onPress={()=> navigation.navigate(item.screen)}
+                    >
                         <Icon name={item.icon} size={30} color="#f9be00" />
                         <Text style={styles.btnText}>{item.title}</Text>
                     </TouchableOpacity>

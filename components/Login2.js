@@ -8,7 +8,7 @@ import React from 'react'
 
 const Login2 = () => {
 
-    const image = require("../assets/images/Captura de pantalla 2024-12-12 132402.png");
+    const image = require("../assets/images/icon.png");
     const navigation = useNavigation();
     const loginUser = () => {
         navigation.navigate('HomeDrawer');

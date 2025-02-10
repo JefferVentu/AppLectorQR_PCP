@@ -6,7 +6,7 @@ import { Button } from '@react-navigation/elements';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Login2 from '../components/Login2';
 import MenuInicial from '../components/drawer/MenuInicial';
-import IngresoAlmacen from '../components/drawer/IngresoAlmacen';
+import ConsultaQR from '../components/drawer/ConsultaQR';
 import SalidaAlmacen from '../components/drawer/SalidaAlmacen';
 import CambioAlmacen from '../components/drawer/CambioAlmacen';
 import ReingresoAlmacen from '../components/drawer/ReingresoAlmacen';
@@ -46,7 +46,7 @@ function HomeDrawer() {
 
     >
       <Drawer.Screen name="Inicio" component={MenuInicial} />
-      <Drawer.Screen name="Ingreso al Almacen" component={IngresoAlmacen} />
+      <Drawer.Screen name="Consulta QR" component={ConsultaQR} />
       <Drawer.Screen name="Salida del Almacen" component={SalidaAlmacen} />
       <Drawer.Screen name="Cambio de Almacen" component={CambioAlmacen} />
       <Drawer.Screen name="Reingreso al Almacen" component={ReingresoAlmacen} />
