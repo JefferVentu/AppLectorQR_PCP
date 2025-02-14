@@ -1,18 +1,44 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard } from 'react-native'
+import React, { useState } from 'react';
+import { 
+    StyleSheet, Text, View, Image, TextInput, TouchableOpacity, 
+    KeyboardAvoidingView, Platform, ScrollView, TouchableWithoutFeedback, Keyboard, Alert 
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react'
-
-// colorfondo: #00c6d1
-// colorbotones: #043256
-// 2docolor: #f9be00
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { users } from '../data/users';  
 
 const Login2 = () => {
-
-    const image = require("../assets/images/icon.png");
+    const [username, setUsername] = useState('');
     const navigation = useNavigation();
-    const loginUser = () => {
-        navigation.navigate('HomeDrawer');
-    }
+    const image = require("../assets/images/icon.png");
+
+    const loginUser = async () => {
+        if (!username.trim()) {
+            Alert.alert('Error', 'Ingrese un usuario');
+            return;
+        }
+
+        const user = users.find(u => u.username.toLowerCase() === username.trim().toLowerCase());
+
+        if (user) {
+            try {
+                await AsyncStorage.setItem('userRole', user.role);
+                await AsyncStorage.setItem('username', user.username);
+                await AsyncStorage.setItem('realName', user.name);
+
+                Alert.alert('Bienvenido', `${user.name}`);
+
+                navigation.reset({
+                    index: 0,
+                    routes: [{ name: 'HomeDrawer' }], // 📌 Redirigir a Home y eliminar la pantalla de Login
+                });
+            } catch (error) {
+                Alert.alert('Error', 'Ocurrió un problema al guardar los datos');
+            }
+        } else {
+            Alert.alert('Error', 'Usuario no registrado');
+        }
+    };
 
     return (
         <KeyboardAvoidingView
@@ -31,6 +57,9 @@ const Login2 = () => {
                                     placeholder='Ingrese su usuario'
                                     placeholderTextColor={'#8c8c8c'}
                                     style={styles.input}
+                                    value={username}
+                                    onChangeText={setUsername}
+                                    autoCapitalize="none"
                                 />
                             </View>
                         </View>
@@ -43,11 +72,12 @@ const Login2 = () => {
                 </ScrollView>
             </TouchableWithoutFeedback>
         </KeyboardAvoidingView>
-    )
+    );
 }
 
-export default Login2
+export default Login2;
 
+// 📌 **Estilos**
 const styles = StyleSheet.create({
     container2:{
         justifyContent: 'center',
@@ -83,6 +113,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginTop: 10,
         width: '100%',
+        textAlign: 'center',
     },
     containerButton:{
         alignItems: 'center',
@@ -98,4 +129,4 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 15,
     }
-})
+});

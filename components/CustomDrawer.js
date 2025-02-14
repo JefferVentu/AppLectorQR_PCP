@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,30 +8,42 @@ import userImage from '../assets/images/user.png'
 
 const CustomDrawerContent = (props) => {
 
+    const [role, setRole] = useState('');
+    const [realName, setRealName] = useState('');
     const navigation = useNavigation();
 
-    const handleLogout = () => {
-        alert('Sesión cerrada correctamente.');
-        navigation.replace('Login');
-    }
+    useEffect(() => {
+        const getUserInfo = async () => {
+            const storedRole = await AsyncStorage.getItem('userRole');
+            const storedRealName = await AsyncStorage.getItem('realName');
+            if (storedRole) setRole(storedRole);
+            if (storedRealName) setRealName(storedRealName);
+        };
+        getUserInfo();
+    }, []);
+
+    const handleLogout = async () => {
+        await AsyncStorage.removeItem('userRole'); 
+        await AsyncStorage.removeItem('realName'); 
+        await AsyncStorage.removeItem('username'); 
+        navigation.reset({
+            index: 0,
+            routes: [{ name: 'Login' }],
+        });
+    };
 
     return (
         <DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1 }}>
-            {/* 📌 Sección superior: Imagen y nombre de usuario */}
             <View style={styles.userInfoSection}>
-                <Image 
-                    source={userImage} // Reemplázalo con la imagen real del usuario
-                    style={styles.profileImage}
-                />
-                <Text style={styles.userName}>Usuario Ejemplo</Text>
+                <Image source={userImage} style={styles.profileImage} />
+                <Text style={styles.userName}>{realName || 'Usuario'}</Text>
+                <Text style={styles.userRole}>{role ? `Rol: ${role}` : 'Cargando...'}</Text>
             </View>
 
             <View style={styles.separator} />
 
-            {/* 📌 Opciones del Drawer */}
             <DrawerItemList {...props} />
 
-            {/* 📌 Sección inferior con el botón de Cerrar Sesión */}
             <View style={styles.bottomSection}>
                 <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
                     <Text style={styles.logoutText}>Cerrar Sesión</Text>
@@ -60,6 +72,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    userRole: {
+        color: '#f9be00',
+        fontSize: 14,
+        marginTop: 5,
     },
     separator: {
         height: 1,
