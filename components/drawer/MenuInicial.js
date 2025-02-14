@@ -16,7 +16,7 @@ const buttons = [
     { title: "Salida del almacén", icon: "exit-run", screen: "Salida del Almacen" },
     { title: "Cambio de almacén", icon: "swap-horizontal", screen: "Cambio de Almacen" },
     { title: "Reingreso al almacén", icon: "truck-delivery", screen: "Reingreso al Almacen" },
-    { title: "Agregar Proveedor", icon: "account-plus" },
+    { title: "Agregar Proveedor", icon: "account-plus", screen: "" },
     { title: "Editar Proveedor", icon: "account-edit" },
     { title: "Historial", icon: "history" }
 ];

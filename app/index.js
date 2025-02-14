@@ -10,6 +10,7 @@ import ConsultaQR from '../components/drawer/ConsultaQR';
 import SalidaAlmacen from '../components/drawer/SalidaAlmacen';
 import CambioAlmacen from '../components/drawer/CambioAlmacen';
 import ReingresoAlmacen from '../components/drawer/ReingresoAlmacen';
+import CustomDrawerContent from '../components/CustomDrawer';
 
 // colorfondo: #00c6d1
 // colorbotones: #043256
@@ -23,6 +24,7 @@ const Stack = createNativeStackNavigator();
 function HomeDrawer() {
   return (
     <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawerContent{...props}/>}
       screenOptions={{
         // headerShown: false,
         drawerActiveTintColor: '#fff',
@@ -69,12 +71,6 @@ export default function App() {
             component={HomeDrawer}
             options={{ headerShown: false, gestureEnabled: false }}
           />
-          {/* <Stack.Screen
-            options={{ headerShown: false }}
-            name='Register'
-            component={Register}
-          />
-           */}
         </Stack.Navigator>
       </SafeAreaView>
     </>
