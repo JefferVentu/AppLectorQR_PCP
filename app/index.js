@@ -7,11 +7,11 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Login2 from '../components/Login2';
 import MenuInicial from '../components/drawer/MenuInicial';
 import ConsultaQR from '../components/drawer/ConsultaQR';
-import SalidaAlmacen from '../components/drawer/SalidaAlmacen';
-import CambioAlmacen from '../components/drawer/CambioAlmacen';
-import ReingresoAlmacen from '../components/drawer/ReingresoAlmacen';
-import AgregarProveedor from '../components/drawer/AgregarProveedor';
-import EditarProveedor from '../components/drawer/EditarProveedor';
+import SalidaAlmacen from '../components/drawer/Almacen/SalidaAlmacen';
+import CambioAlmacen from '../components/drawer/Almacen/CambioAlmacen';
+import ReingresoAlmacen from '../components/drawer/Almacen/ReingresoAlmacen';
+import AgregarProveedor from '../components/drawer/Proveedor/AgregarProveedor';
+import EditarProveedor from '../components/drawer/Proveedor/EditarProveedor';
 import Historial from '../components/drawer/Historial';
 import CustomDrawerContent from '../components/CustomDrawer';
 
