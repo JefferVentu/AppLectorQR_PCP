@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'; // Importa la librería de iconos
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useNavigation } from '@react-navigation/native';
 
 const colors = {
@@ -10,15 +10,14 @@ const colors = {
     third: '#cccccc'
 };
 
-// Lista de botones con títulos e íconos
 const buttons = [
     { title: "Consulta QR", icon: "qrcode-scan", screen: "Consulta QR" },
     { title: "Salida del almacén", icon: "exit-run", screen: "Salida del Almacen" },
     { title: "Cambio de almacén", icon: "swap-horizontal", screen: "Cambio de Almacen" },
     { title: "Reingreso al almacén", icon: "truck-delivery", screen: "Reingreso al Almacen" },
-    { title: "Agregar Proveedor", icon: "account-plus", screen: "" },
-    { title: "Editar Proveedor", icon: "account-edit" },
-    { title: "Historial", icon: "history" }
+    { title: "Agregar Proveedor", icon: "account-plus", screen: "Agregar Proveedor" },
+    { title: "Editar Proveedor", icon: "account-edit", screen:"Editar Proveedor" },
+    { title: "Historial", icon: "history", screen:"Historial" }
 ];
 
 const MenuInicial = () => {

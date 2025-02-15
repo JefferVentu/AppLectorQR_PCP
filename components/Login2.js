@@ -30,7 +30,7 @@ const Login2 = () => {
 
                 navigation.reset({
                     index: 0,
-                    routes: [{ name: 'HomeDrawer' }], // 📌 Redirigir a Home y eliminar la pantalla de Login
+                    routes: [{ name: 'HomeDrawer' }], 
                 });
             } catch (error) {
                 Alert.alert('Error', 'Ocurrió un problema al guardar los datos');

@@ -10,6 +10,9 @@ import ConsultaQR from '../components/drawer/ConsultaQR';
 import SalidaAlmacen from '../components/drawer/SalidaAlmacen';
 import CambioAlmacen from '../components/drawer/CambioAlmacen';
 import ReingresoAlmacen from '../components/drawer/ReingresoAlmacen';
+import AgregarProveedor from '../components/drawer/AgregarProveedor';
+import EditarProveedor from '../components/drawer/EditarProveedor';
+import Historial from '../components/drawer/Historial';
 import CustomDrawerContent from '../components/CustomDrawer';
 
 // colorfondo: #00c6d1
@@ -51,6 +54,9 @@ function HomeDrawer() {
       <Drawer.Screen name="Salida del Almacen" component={SalidaAlmacen} />
       <Drawer.Screen name="Cambio de Almacen" component={CambioAlmacen} />
       <Drawer.Screen name="Reingreso al Almacen" component={ReingresoAlmacen} />
+      <Drawer.Screen name='Agregar Proveedor' component={AgregarProveedor} />
+      <Drawer.Screen name='Editar Proveedor' component={EditarProveedor}/>
+      <Drawer.Screen name='Historial' component={Historial}/>
     </Drawer.Navigator>
   );
 }
