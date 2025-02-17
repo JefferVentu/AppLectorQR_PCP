@@ -22,18 +22,22 @@ const Login2 = () => {
 
         if (user) {
             try {
+                await AsyncStorage.clear(); // 📌 Limpia cualquier sesión anterior
+
                 await AsyncStorage.setItem('userRole', user.role);
                 await AsyncStorage.setItem('username', user.username);
                 await AsyncStorage.setItem('realName', user.name);
 
                 Alert.alert('Bienvenido', `${user.name}`);
 
+                // 📌 Redirige al Drawer correcto según el rol
                 navigation.reset({
                     index: 0,
-                    routes: [{ name: 'HomeDrawer' }], 
+                    routes: [{ name: user.role === 'admin' ? 'AdminDrawer' : 'OperarioDrawer' }],
                 });
             } catch (error) {
                 Alert.alert('Error', 'Ocurrió un problema al guardar los datos');
+                await AsyncStorage.clear(); // 📌 Limpia en caso de error
             }
         } else {
             Alert.alert('Error', 'Usuario no registrado');
@@ -43,31 +47,27 @@ const Login2 = () => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={{ flex: 1, backgroundColor: '#00c6d1' }}
+            style={styles.container}
         >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                <ScrollView contentContainerStyle={styles.container2}>
-                    <View>
-                        <View style={styles.container}>
-                            <Image source={image} style={styles.imagen} resizeMode='contain' />
-                            <Text style={styles.title}>INGRESE SU USUARIO</Text>
-                            <View style={styles.inputContainer}>
-                                <Text style={styles.infoPass}>Usuario: </Text>
-                                <TextInput
-                                    placeholder='Ingrese su usuario'
-                                    placeholderTextColor={'#8c8c8c'}
-                                    style={styles.input}
-                                    value={username}
-                                    onChangeText={setUsername}
-                                    autoCapitalize="none"
-                                />
-                            </View>
+                <ScrollView contentContainerStyle={styles.scrollContainer}>
+                    <View style={styles.innerContainer}>
+                        <Image source={image} style={styles.imagen} resizeMode='contain' />
+                        <Text style={styles.title}>INGRESE SU USUARIO</Text>
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.label}>Usuario:</Text>
+                            <TextInput
+                                placeholder='Ingrese su usuario'
+                                placeholderTextColor={'#8c8c8c'}
+                                style={styles.input}
+                                value={username}
+                                onChangeText={setUsername}
+                                autoCapitalize="none"
+                            />
                         </View>
-                        <View style={styles.containerButton}>
-                            <TouchableOpacity style={styles.ingresoBtn} onPress={loginUser}>
-                                <Text style={styles.txtButton}>Iniciar Sesión</Text>
-                            </TouchableOpacity>
-                        </View>
+                        <TouchableOpacity style={styles.ingresoBtn} onPress={loginUser}>
+                            <Text style={styles.txtButton}>Iniciar Sesión</Text>
+                        </TouchableOpacity>
                     </View>
                 </ScrollView>
             </TouchableWithoutFeedback>
@@ -77,56 +77,60 @@ const Login2 = () => {
 
 export default Login2;
 
-// 📌 **Estilos**
+// 📌 **Estilos optimizados**
 const styles = StyleSheet.create({
-    container2:{
+    container: {
+        flex: 1,
+        backgroundColor: '#00c6d1',
+    },
+    scrollContainer: {
+        flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
     },
-    container: {
+    innerContainer: {
         alignItems: 'center',
         justifyContent: 'center',
     },
     imagen: {
-        width: 350,
-        height: 400,
-        margin: 0,
+        width: 250,
+        height: 250,
+        marginBottom: 20,
     },
     title: {
-        marginTop: -30,
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: 'bold',
-        marginBottom: 50,
-    },
-    infoPass: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        marginBottom: 30,
+        color: 'white',
     },
     inputContainer: {
         width: '80%',
+        alignItems: 'center',
+    },
+    label: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'white',
+        marginBottom: 5,
     },
     input: {
         backgroundColor: '#D9D9D9',
         paddingHorizontal: 15,
         paddingVertical: 10,
         borderRadius: 10,
-        marginTop: 10,
         width: '100%',
         textAlign: 'center',
     },
-    containerButton:{
-        alignItems: 'center',
-        margin: 30,
-    },
-    ingresoBtn:{
+    ingresoBtn: {
         backgroundColor: '#043256',
         padding: 15,
-        borderColor: '#043256',
         borderRadius: 10,
+        marginTop: 20,
     },
-    txtButton:{
+    txtButton: {
         color: 'white',
-        fontSize: 15,
-    }
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
 });

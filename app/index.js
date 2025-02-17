@@ -1,19 +1,11 @@
-import React from 'react';
-import { Text, View, StatusBar, SafeAreaView, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Text, View, StatusBar, SafeAreaView, StyleSheet, ActivityIndicator } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { Button } from '@react-navigation/elements';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Login2 from '../components/Login2';
-import MenuInicial from '../components/drawer/MenuInicial';
-import ConsultaQR from '../components/drawer/ConsultaQR';
-import SalidaAlmacen from '../components/drawer/Almacen/SalidaAlmacen';
-import CambioAlmacen from '../components/drawer/Almacen/CambioAlmacen';
-import ReingresoAlmacen from '../components/drawer/Almacen/ReingresoAlmacen';
-import AgregarProveedor from '../components/drawer/Proveedor/AgregarProveedor';
-import EditarProveedor from '../components/drawer/Proveedor/EditarProveedor';
-import Historial from '../components/drawer/Historial';
-import CustomDrawerContent from '../components/CustomDrawer';
+import AdminDrawer from '../components/rolesDrawer/AdminDrawer';
+import OperarioDrawer from '../components/rolesDrawer/OperarioDrawer';
+
 
 // colorfondo: #00c6d1
 // colorbotones: #043256
@@ -21,64 +13,57 @@ import CustomDrawerContent from '../components/CustomDrawer';
 // 3ercolor: #cccccc
 // #007BFF
 
-const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
-function HomeDrawer() {
-  return (
-    <Drawer.Navigator
-      drawerContent={(props) => <CustomDrawerContent{...props}/>}
-      screenOptions={{
-        // headerShown: false,
-        drawerActiveTintColor: '#fff',
-        drawerActiveBackgroundColor: '#043256',
-        drawerInactiveTintColor: '#000',
-        drawerStyle: {
-          flex: 1,
-          backgroundColor: '#cccccc',
-        },
-        headerStatusBarHeight: 0,
-        headerStyle: {
-          backgroundColor: '#043256',
-        },
-        headerTitleStyle: {
-          color: 'white',
-          fontSize: 22,
-        },
-        headerTintColor: 'white',
-      }}
-
-    >
-      <Drawer.Screen name="Inicio" component={MenuInicial} />
-      <Drawer.Screen name="Consulta QR" component={ConsultaQR} />
-      <Drawer.Screen name="Salida del Almacen" component={SalidaAlmacen} />
-      <Drawer.Screen name="Cambio de Almacen" component={CambioAlmacen} />
-      <Drawer.Screen name="Reingreso al Almacen" component={ReingresoAlmacen} />
-      <Drawer.Screen name='Agregar Proveedor' component={AgregarProveedor} />
-      <Drawer.Screen name='Editar Proveedor' component={EditarProveedor}/>
-      <Drawer.Screen name='Historial' component={Historial}/>
-    </Drawer.Navigator>
-  );
-}
-
 export default function App() {
+
+  const [userRole, setUserRole] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const checkUserRole = async () => {
+      try {
+        const storedRole = await AsyncStorage.getItem('userRole');
+        setUserRole(storedRole);
+      } catch (error) {
+        console.error('Error al obtener el rol:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    checkUserRole();
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#043256" />
+      </View>
+    );
+  }
+
   return (
     <>
       <StatusBar hidden={false} />
-      <SafeAreaView style={styles.container}>
-        <Stack.Navigator>
-          <Stack.Screen
-            options={{ headerShown: false, gestureEnabled: false }}
-            name='Login'
-            component={Login2}
-          />
-          <Stack.Screen
-            name='HomeDrawer'
-            component={HomeDrawer}
-            options={{ headerShown: false, gestureEnabled: false }}
-          />
-        </Stack.Navigator>
-      </SafeAreaView>
+            <SafeAreaView style={{ flex: 1 }}>
+                <Stack.Navigator>
+                    <Stack.Screen
+                        options={{ headerShown: false, gestureEnabled: false }}
+                        name="Login"
+                        component={Login2}
+                    />
+                    <Stack.Screen
+                        name="AdminDrawer"
+                        component={AdminDrawer}
+                        options={{ headerShown: false, gestureEnabled: false }}
+                    />
+                    <Stack.Screen
+                        name="OperarioDrawer"
+                        component={OperarioDrawer}
+                        options={{ headerShown: false, gestureEnabled: false }}
+                    />
+                </Stack.Navigator>
+            </SafeAreaView>
     </>
   );
 }
