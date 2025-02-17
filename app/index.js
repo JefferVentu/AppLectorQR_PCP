@@ -45,25 +45,25 @@ export default function App() {
   return (
     <>
       <StatusBar hidden={false} />
-            <SafeAreaView style={{ flex: 1 }}>
-                <Stack.Navigator>
-                    <Stack.Screen
-                        options={{ headerShown: false, gestureEnabled: false }}
-                        name="Login"
-                        component={Login2}
-                    />
-                    <Stack.Screen
-                        name="AdminDrawer"
-                        component={AdminDrawer}
-                        options={{ headerShown: false, gestureEnabled: false }}
-                    />
-                    <Stack.Screen
-                        name="OperarioDrawer"
-                        component={OperarioDrawer}
-                        options={{ headerShown: false, gestureEnabled: false }}
-                    />
-                </Stack.Navigator>
-            </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <Stack.Navigator>
+          <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name="Login"
+            component={Login2}
+          />
+          <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name="AdminDrawer"
+            component={AdminDrawer}
+          />
+          <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name="OperarioDrawer"
+            component={OperarioDrawer}
+          />
+        </Stack.Navigator>
+      </SafeAreaView>
     </>
   );
 }

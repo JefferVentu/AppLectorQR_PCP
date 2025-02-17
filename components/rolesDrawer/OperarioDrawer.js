@@ -17,6 +17,7 @@ const OperarioDrawer = () => {
                 drawerActiveTintColor: '#fff',
                 drawerActiveBackgroundColor: '#043256',
                 drawerInactiveTintColor: '#000',
+                headerStatusBarHeight: 0,
                 drawerStyle: { backgroundColor: '#cccccc' },
                 headerStyle: { backgroundColor: '#043256' },
                 headerTintColor: 'white',

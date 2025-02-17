@@ -19,6 +19,7 @@ const AdminDrawer = () => {
                 drawerActiveBackgroundColor: '#043256',
                 drawerInactiveTintColor: '#000',
                 drawerStyle: { backgroundColor: '#cccccc' },
+                headerStatusBarHeight: 0,
                 headerStyle: { backgroundColor: '#043256' },
                 headerTintColor: 'white',
             }}
