@@ -12,8 +12,8 @@ const colors = {
 
 const buttons = [
     { title: "Consulta QR", icon: "qrcode-scan", screen: "Consulta QR" },
-    { title: "Salida del almacén", icon: "exit-run", screen: "Salida del Almacen" },
-    { title: "Reingreso al almacén", icon: "truck-delivery", screen: "Reingreso al Almacen" },
+    { title: "Salida del almacén", icon: "exit-run", screen: "Salida del Almacén" },
+    { title: "Reingreso al almacén", icon: "truck-delivery", screen: "Reingreso al Almacén" },
     { title: "Historial", icon: "history", screen:"Historial" }
 ];
 

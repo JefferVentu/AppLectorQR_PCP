@@ -12,9 +12,9 @@ const colors = {
 
 const buttons = [
     { title: "Consulta QR", icon: "qrcode-scan", screen: "Consulta QR" },
-    { title: "Salida del almacén", icon: "exit-run", screen: "Salida del Almacen" },
-    { title: "Cambio de almacén", icon: "swap-horizontal", screen: "Cambio de Almacen" },
-    { title: "Reingreso al almacén", icon: "truck-delivery", screen: "Reingreso al Almacen" },
+    { title: "Salida del almacén", icon: "exit-run", screen: "Salida del Almacén" },
+    { title: "Cambio de almacén", icon: "swap-horizontal", screen: "Cambio de Almacén" },
+    { title: "Reingreso al almacén", icon: "truck-delivery", screen: "Reingreso al Almacén" },
     { title: "Agregar Proveedor", icon: "account-plus", screen: "Agregar Proveedor" },
     { title: "Editar Proveedor", icon: "account-edit", screen:"Editar Proveedor" },
     { title: "Historial", icon: "history", screen:"Historial" }

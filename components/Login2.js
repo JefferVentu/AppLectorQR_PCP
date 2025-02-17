@@ -105,22 +105,22 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     inputContainer: {
-        width: '80%',
-        alignItems: 'center',
+        width: '90%',
+        flexDirection: 'row'
     },
     label: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: 'white',
-        marginBottom: 5,
+        margin: 5,
+        marginTop: 6,
+        marginRight: 10,
     },
     input: {
         backgroundColor: '#D9D9D9',
         paddingHorizontal: 15,
         paddingVertical: 10,
         borderRadius: 10,
-        width: '100%',
-        textAlign: 'center',
+        width: 200,
     },
     ingresoBtn: {
         backgroundColor: '#043256',
