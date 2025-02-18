@@ -1,24 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
 // colorfondo: #00c6d1
 // colorbotones: #043256
 // 2docolor: #f9be00
 // 3ercolor: #cccccc
 
-const IngresoAlmacen = () => {
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+
+export default function ConsultaQR() {
   return (
     <View style={styles.container}>
-      <Text>ingresoAlmacen</Text>
+      <Text>ConsultaQR</Text>
     </View>
   )
 }
 
-export default IngresoAlmacen
-
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: '#00c6d1',
     flex: 1,
-}
+    backgroundColor: '#00c6d1',
+  }
 })
