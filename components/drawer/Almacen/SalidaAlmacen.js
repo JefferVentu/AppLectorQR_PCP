@@ -160,13 +160,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     label: {
-
+        fontWeight: 'bold',
+        paddingLeft: 10,
+        paddingRight: 10,
     },
     picker: {
         height: 50,
         color: 'black',
         flex: 1,
         fontSize: 14,
+        backgroundColor: '#cccccc',
     },
     infoContainer: {
         marginTop: 20,
@@ -175,5 +178,8 @@ const styles = StyleSheet.create({
     },
     infoText: {
         marginVertical: 10,
+        fontWeight: 'bold',
+        paddingLeft: 10,
+        paddingRight: 10,
     }
 });
