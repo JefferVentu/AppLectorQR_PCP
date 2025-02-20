@@ -51,7 +51,7 @@ const ConsultaQR = () => {
                     </Camera>
                 )}
             </View>
-            
+
             <View style={styles.ingresoCod}>
                 <Text style={styles.txtInputPCP}>O ingresa el código PCP:</Text>
                 <TextInput
@@ -61,7 +61,31 @@ const ConsultaQR = () => {
                 />
             </View>
 
-            
+            <View style={styles.buscarBtn} >
+                <TouchableOpacity style={styles.button2}>
+                    <Text style={styles.title2}>BUSCAR</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.contenidoInfo}>
+                <Text>Código KARDEX: </Text>
+                <Text>Código PCP: </Text>
+                <Text>Material: </Text>
+                <Text>Título: </Text>
+                <Text>Color: </Text>
+                <Text>Lote: </Text>
+                <Text>Caja: </Text>
+                <Text>Bobina/Cono: </Text>
+                <Text>Reenconado: </Text>
+                <Text>Peso Bruto: </Text>
+                <Text>Peso Neto: </Text>
+                <Text>Proveedor: </Text>
+                <Text>Fecha de ingreso: </Text>
+                <Text>Almacén: </Text>
+                <Text>Ubicación: </Text>
+                <Text>Servicio: </Text>
+            </View>
+
         </View>
 
     );
@@ -74,7 +98,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#00c6d1',
     },
-    container2:{
+    container2: {
         alignItems: 'center',
         backgroundColor: '#00c6d1',
     },
@@ -114,22 +138,43 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
     },
-    ingresoCod:{
-        marginTop:10,
+    ingresoCod: {
+        marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    txtInputPCP:{
+    txtInputPCP: {
         marginRight: 5,
         fontWeight: 'bold',
         fontSize: 18,
     },
-    inputPCP:{
+    inputPCP: {
         backgroundColor: '#D9D9D9',
         paddingHorizontal: 15,
         paddingVertical: 10,
         borderRadius: 10,
         width: 200,
     },
+    buscarBtn: {
+        justifyContent: 'center',
+        margin: 15,
+        alignItems: 'center',
+    },
+    title2: {
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
+    button2: {
+        backgroundColor: '#f9be00',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+    },
+    contenidoInfo: {
+        backgroundColor: '#f9be00',
+        padding: 10,
+        marginHorizontal: 5,
+        borderRadius: 10,
+    }
 });
