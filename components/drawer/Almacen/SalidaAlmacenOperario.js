@@ -16,12 +16,10 @@ const SalidaAlmacen = () => {
                 { label: "URDIDORA 1 (VERDE)", value: "urdidora1" },
                 { label: "URDIDORA 2 (AZUL)", value: "urdidora2" },
                 { label: "TRAMA", value: "trama" },
-                { label: "VENTA", value: "venta" },
             ]
             : [
                 { label: "URDIDORA 3 (PEÑON)", value: "urdidora3" },
                 { label: "TRAMA", value: "trama" },
-                { label: "VENTA", value: "venta" },
             ];
     };
 
