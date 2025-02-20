@@ -6,7 +6,6 @@ import Login2 from '../components/Login2';
 import AdminDrawer from '../components/rolesDrawer/AdminDrawer';
 import OperarioDrawer from '../components/rolesDrawer/OperarioDrawer';
 
-
 // colorfondo: #00c6d1
 // colorbotones: #043256
 // 2docolor: #f9be00

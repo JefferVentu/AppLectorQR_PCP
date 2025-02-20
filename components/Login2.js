@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         marginBottom: 30,
-        color: 'white',
+        // color: 'white',
     },
     inputContainer: {
         width: '90%',
