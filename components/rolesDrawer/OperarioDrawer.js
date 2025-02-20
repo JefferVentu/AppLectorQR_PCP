@@ -2,7 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MenuInicial from '../drawer/MenuInicialOperario';
 import ConsultaQR from '../drawer/ConsultaQR';
-import SalidaAlmacen from '../drawer/Almacen/SalidaAlmacen';
+import SalidaAlmacen from '../drawer/Almacen/SalidaAlmacenOperario';
 import ReingresoAlmacen from '../drawer/Almacen/ReingresoAlmacen';
 import Historial from '../drawer/Historial';
 import CustomDrawerContent from '../CustomDrawer';

@@ -63,7 +63,7 @@ const ConsultaQR = () => {
 
             <View style={styles.buscarBtn} >
                 <TouchableOpacity style={styles.button2}>
-                    <Text style={styles.title2}>BUSCAR</Text>
+                    <Text style={styles.title2}>Buscar</Text>
                 </TouchableOpacity>
             </View>
 
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     },
     title2: {
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 16,
     },
     button2: {
         backgroundColor: '#f9be00',
