@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Alert, TextInput } from 'react-native';
 import { Camera } from 'expo-camera';
 import { Picker } from '@react-native-picker/picker';
 
@@ -67,8 +67,16 @@ const SalidaAlmacen = () => {
                 )}
             </View>
             <View style={styles.infoContainer}>
-                <Text style={styles.infoText}>Código Kardex: </Text>
-                <Text style={styles.infoText}>Código PCP: </Text>
+                <View style={styles.infoData}>
+                    <Text style={styles.infoText}>Código Kardex: </Text>
+                    <TextInput style={styles.infoQR} editable={false}></TextInput>
+                </View>
+                
+                <View style={styles.infoData}>
+                    <Text style={styles.infoText}>Código PCP: </Text>
+                    <TextInput style={styles.infoQR} editable={false}></TextInput>
+                </View>
+
                 <Text style={styles.infoText}>Material: </Text>
                 <Text style={styles.infoText}>Título: </Text>
                 <Text style={styles.infoText}>Color: </Text>
@@ -181,5 +189,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingLeft: 10,
         paddingRight: 10,
-    }
+    },
+    infoData:{
+        flexDirection: 'row',
+    },
+    infoQR:{
+        borderBottomWidth: 1,
+        borderBottomColor: 'gray',
+        flex: 1,
+        marginRight: 10,
+    },
 });
